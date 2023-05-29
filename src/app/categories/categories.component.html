@@ -1,0 +1,8 @@
+<div class="categories">
+    <div class="category-holder" *ngFor="let currentCategory of listOfCategories">
+        <button class="category" mat-raised-button color="secondaty" (click)="selectCategory(currentCategory)">
+            {{currentCategory}}
+        </button>
+    </div>
+</div>
+<!--<button mat-raised-button color="primary" (click)="resetFilters()">Reset filters</button>-->

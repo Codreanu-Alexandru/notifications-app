@@ -1,0 +1,26 @@
+<!-- <p>announcements works!</p> -->
+<!-- 
+    <p>
+        Message '{{message}}' 
+        with title '{{title}}' 
+        was sent by {{author}} 
+    </p>
+-->
+
+<div class="announcement-container">
+    <p class="title">{{announcement.title | descriptionPipe : 25}}</p>
+    <p class="author"> {{announcement.author | customPipe | descriptionPipe : 25}} </p>
+    <div class="tooltip">
+        <p class="message" (mouseover)="isHovered = true" (mouseleave)="isHovered = false">
+            {{ announcement.message | descriptionPipe:175 }}
+        </p>
+        <span class="tooltip-text">{{ announcement.message }}</span>
+    </div>
+    <img class="imageUrl" src="{{announcement.imageUrl}}">
+    <!-- <p>{{announcement.id}}</p> -->
+    <div class="buttons">
+        <button class="button" mat-raised-button color="secondary" routerLink="/add"
+            (click)="onClickEdit(announcement)">Edit</button>
+        <button class="button" mat-raised-button color="secondary" (click)="deleteAnnouncement()">Delete</button>
+    </div>
+</div>

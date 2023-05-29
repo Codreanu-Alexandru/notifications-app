@@ -1,0 +1,39 @@
+<div class="forms">
+    <form class="add-form">
+        <mat-form-field class="matDesignh">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="title" [(ngModel)]="title" name="title" required>
+        </mat-form-field>
+
+        <mat-form-field class="matDesignh">
+            <mat-label>Author</mat-label>
+            <input matInput placeholder="author" [(ngModel)]="author" name="author">
+        </mat-form-field>
+
+        <mat-form-field class="matDesignh">
+            <mat-label>Message</mat-label>
+            <textarea matInput placeholder="message" [(ngModel)]="message" name="message">
+            </textarea>
+        </mat-form-field>
+
+        <mat-form-field class="matDesignh">
+            <mat-label>ImageUrl</mat-label>
+            <input matInput placeholder="imageUrl" [(ngModel)]="imageUrl" name="imageUrl">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select [(value)]="category" name="category">
+                <mat-option *ngFor="let categories of listOfCategories" [value]="categories">
+                    {{categories}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </form>
+    <div class="buttons">
+        <button class="button" mat-raised-button (click)="addComponent()" routerLink="/home"
+            *ngIf="title!=undefined && author!=undefined && message!=undefined && category!=undefined">Click</button>
+        <button class="button" mat-raised-button routerLink="/home"> Cancel </button>
+    </div>
+</div>

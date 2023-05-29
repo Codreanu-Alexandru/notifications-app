@@ -1,0 +1,20 @@
+<!-- 
+<app-announcements 
+[announcement]="announcementFromApp"> 
+</app-announcements>
+-->
+
+<!-- kind reminder: de folosit ngFor -->
+<app-categories (selectCategoryEmitter)="filterAnnouncements($event)"></app-categories>
+
+
+<!--<div *ngFor="..." class="app-container"> -->
+<div class="app-container">
+  <div *ngFor="let announcement of filteredAnnouncements">
+    <app-announcements class="announcements" [announcement]="announcement"
+      (delete)="onDeleteAnnouncement($event)">
+    </app-announcements>
+  </div>
+
+  <button class="button-add" mat-raised-button color="secondary" routerLink="/add"> Add </button>
+</div>
